@@ -172,7 +172,7 @@ Version 1.2.0
 
 Released on January 27, 2017.
 
-- The prerequisite Python version became 3.5 or higher.
+- The prerequisite Python version became 3.5.3 or higher.
   Python 3.4 or lower are no more supported.
 - Replaced waitress_ with aiohttp-wsgi_.
 - The Docker image now uses Python 3.5 instead of 3.4.

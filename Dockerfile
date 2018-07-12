@@ -13,14 +13,14 @@ RUN apt-get update && \
     rm -rf /var/lib/apt/lists/*
 
 WORKDIR /tmp
-RUN wget https://github.com/spoqa/spoqa-han-sans/releases/download/1.0.0/SpoqaHanSans_all.zip && \
-    unzip SpoqaHanSans_all.zip && \
-    find SpoqaHanSans_all -name '*.ttf' -print0 | xargs -0 mv -t /usr/share/fonts/ && \
+RUN wget https://gitee.com/local/fonts/repository/archive/fonts-v1.0.zip && \
+    unzip fonts-v1.0.zip && \
+    find fonts-v1.0 -name '*.ttf' -print0 | xargs -0 mv -t /usr/share/fonts/ && \
     fc-cache -f -v && \
-    rm -rf __MACOSX SpoqaHanSans_all
+    rm -rf __MACOSX fonts-v1.0
 WORKDIR /
 
-COPY . /app
+ADD . /app
 WORKDIR /app
 RUN pip3 install -e .
 
