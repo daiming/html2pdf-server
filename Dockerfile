@@ -15,8 +15,7 @@ RUN apk update && \
     pip3 install --upgrade pip -i https://pypi.tuna.tsinghua.edu.cn/simple
     
 WORKDIR /tmp
-RUN mkdir /usr/share/fonts && \
-    wget https://gitee.com/local/fonts/repository/archive/fonts-v1.0.zip && \
+RUN wget https://gitee.com/local/fonts/repository/archive/fonts-v1.0.zip && \
     unzip fonts-v1.0.zip && \
     find ./fonts -name '*.ttf' | xargs -n1 -I {} cp -f {} /usr/share/fonts/ && \
     fc-cache -f -v && \

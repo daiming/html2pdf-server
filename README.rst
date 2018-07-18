@@ -86,6 +86,14 @@ Result screenshot:
 Getting started using Docker
 ----------------------------
 
+builde docker image e.g.:
+
+.. code-block:: console
+
+  $ docker build -t daiming218/html2pdf-alpine:v1.1 .
+
+
+
 Due to its non-Python dependencies the easist way to use this is using Docker.
 The official Docker image exposes 8080 port for HTTP server.
 
