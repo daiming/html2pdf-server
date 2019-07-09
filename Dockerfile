@@ -8,8 +8,7 @@ RUN apt-get update && \
                        shared-mime-info python3-cffi python3-lxml \
                        unzip otf-freefont ttf-freefont \
                        fonts-nanum fonts-nanum-extra fonts-nanum-coding \
-                       ttf-baekmuk ttf-kochi-gothic ttf-kochi-mincho \
-                       ttf-wqy-zenhei ttf-wqy-microhei && \
+                       ttf-baekmuk ttf-wqy-zenhei ttf-wqy-microhei && \
     rm -rf /var/lib/apt/lists/*
  
 RUN wget https://gitee.com/local/fonts/repository/archive/fonts-v1.0.zip && \
