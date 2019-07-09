@@ -1,17 +1,20 @@
-FROM python:3.6
+FROM alpine:edge
 
-MAINTAINER Spoqa
+MAINTAINER daiming
 ENV PONG_PATH=""
 
-RUN apt-get update && \
-    apt-get install -y libcairo2 libpango1.0-0 libgdk-pixbuf2.0-0 \
-                       shared-mime-info python3-cffi python3-lxml \
-                       unzip otf-freefont ttf-freefont \
-                       fonts-nanum fonts-nanum-extra fonts-nanum-coding \
-                       ttf-baekmuk ttf-kochi-gothic ttf-kochi-mincho \
-                       ttf-wqy-zenhei ttf-wqy-microhei && \
-    rm -rf /var/lib/apt/lists/*
- 
+
+
+COPY ./repositories /etc/apk/repositories
+
+RUN apk update && \
+    apk add  build-base python3 cairo pango gdk-pixbuf shared-mime-info py3-cffi py3-lxml python3-dev  imagemagick-dev@v35main zlib-dev libjpeg-turbo-dev && \
+    echo alias python=python3 >> ~/.bashrc && \
+    echo alias pip=pip3 >> ~/.bashrc && \
+    source ~/.bashrc && \
+    pip3 install --upgrade pip -i https://pypi.tuna.tsinghua.edu.cn/simple
+    
+WORKDIR /tmp
 RUN wget https://gitee.com/local/fonts/repository/archive/fonts-v1.0.zip && \
     unzip fonts-v1.0.zip && \
     find ./fonts -name '*.ttf' | xargs -n1 -I {} cp -f {} /usr/share/fonts/ && \
@@ -19,9 +22,9 @@ RUN wget https://gitee.com/local/fonts/repository/archive/fonts-v1.0.zip && \
     rm -rf __MACOSX fonts && \
     rm -f fonts-v1.0.zip 
 
-
 WORKDIR /
 ADD . /app
+
 WORKDIR /app
 RUN pip3 install -e . -i https://pypi.tuna.tsinghua.edu.cn/simple
 

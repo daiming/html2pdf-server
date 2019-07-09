@@ -26,7 +26,7 @@ def readme():
 
 setup(
     name='html2pdf-server',
-    version='2.0.0',
+    version='2.1.0',
     description='HTTP server that renders HTML to PDF',
     long_description=readme(),
     url='https://github.com/spoqa/html2pdf-server',
@@ -41,8 +41,8 @@ setup(
     license='AGPLv3 or later',
     py_modules=['html2pdfd'],
     install_requires=[
-        'aiohttp >= 3,<4', 'aiohttp-wsgi == 0.8.1', 'Wand >= 0.4.4',
-        'WeasyPrint >= 0.42.3', 'Werkzeug >= 0.13'
+        'aiohttp >= 3,<4', 'aiohttp-wsgi == 0.8.1', 'Wand >= 0.5.4',
+        'WeasyPrint >= 43', 'Werkzeug >= 0.15.4'
     ],
     scripts=['html2pdfd.py'],
     entry_points='''
