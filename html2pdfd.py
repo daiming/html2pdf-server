@@ -36,11 +36,11 @@ def render_to_jpeg(html: HTML, buffer: io.BytesIO):
 
 @Request.application
 def app(request: Request) -> Response:
-    if request.path != '/converter':
+    if request.path != '/':
         return Response(
             json.dumps({
                 'error': 'not-found',
-                'message': "page not found; there's only one path: /converter"
+                'message': "page not found; there's only one path: /"
             }),
             status=404)
     elif request.method.upper() != 'POST':
