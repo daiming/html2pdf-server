@@ -41,8 +41,8 @@ setup(
     license='AGPLv3 or later',
     py_modules=['html2pdfd'],
     install_requires=[
-        'aiohttp >= 3,<4', 'aiohttp-wsgi == 0.8.1', 'Wand >= 0.5.4',
-        'WeasyPrint >= 43', 'Werkzeug >= 0.15.4'
+        'aiohttp >= 3,<4', 'aiohttp-wsgi == 0.8.1', 'Wand >= 0.6.2',
+        'WeasyPrint >= 51', 'Werkzeug >= 1.0.1'
     ],
     scripts=['html2pdfd.py'],
     entry_points='''
