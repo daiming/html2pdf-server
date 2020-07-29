@@ -6,9 +6,9 @@ ENV PONG_PATH=""
 RUN apt-get update && \
     apt-get install -y libcairo2 libpango1.0-0 libgdk-pixbuf2.0-0 \
                        shared-mime-info python3-cffi python3-lxml \
-                       unzip otf-freefont ttf-freefont \
+                       unzip fonts-freefont-otf fonts-freefont-ttf \
                        fonts-nanum fonts-nanum-extra fonts-nanum-coding \
-                       ttf-baekmuk ttf-wqy-zenhei ttf-wqy-microhei && \
+                       fonts-baekmuk ttf-wqy-zenhei ttf-wqy-microhei && \
     rm -rf /var/lib/apt/lists/*
  
 RUN wget https://gitee.com/local/fonts/repository/archive/fonts-v1.0.zip && \
