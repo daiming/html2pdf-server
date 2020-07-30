@@ -1,4 +1,4 @@
-FROM python:3.7
+FROM python:3.6
 
 MAINTAINER Spoqa
 ENV PONG_PATH=""
@@ -6,17 +6,17 @@ ENV PONG_PATH=""
 RUN apt-get update && \
     apt-get install -y libcairo2 libpango1.0-0 libgdk-pixbuf2.0-0 \
                        shared-mime-info python3-cffi python3-lxml \
-                       unzip fonts-freefont-otf fonts-freefont-ttf \
+                       unzip otf-freefont ttf-freefont \
                        fonts-nanum fonts-nanum-extra fonts-nanum-coding \
-                       fonts-baekmuk ttf-wqy-zenhei ttf-wqy-microhei && \
+                       ttf-baekmuk ttf-wqy-zenhei ttf-wqy-microhei && \
     rm -rf /var/lib/apt/lists/*
- 
+
 RUN wget https://gitee.com/local/fonts/repository/archive/fonts-v1.0.zip && \
     unzip fonts-v1.0.zip && \
     find ./fonts -name '*.ttf' | xargs -n1 -I {} cp -f {} /usr/share/fonts/ && \
     fc-cache -f -v && \
     rm -rf __MACOSX fonts && \
-    rm -f fonts-v1.0.zip 
+    rm -f fonts-v1.0.zip
 
 
 WORKDIR /
